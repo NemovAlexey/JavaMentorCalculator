@@ -15,7 +15,7 @@ public class Calculator {
             case '-' -> num1 - num2;
             case '*' -> num1 * num2;
             case '/' -> num1 / num2;
-            default -> throw new Exception("Знак операции: " + operation + " не удовлетворяет заданию - два операнда и один оператор");
+            default -> throw new Exception("Знак операции: " + operation + " не удовлетворяет заданию. Ожидается: +, -, /, *");
         };
     }
 
@@ -23,9 +23,10 @@ public class Calculator {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int result;
         try {
-            String input = reader.readLine();
-            String[] inputArray = input.split(" ");
-            if (inputArray.length != 3) throw new Exception("Формат математической операции: \"" +
+            String input = reader.readLine();               //Считывание строки с консоли
+            String[] inputArray = input.split(" ");   //Преобразование строки в массив строк, разделитель пробел
+            if (inputArray.length != 3)                     //Проверка длинны массива (ожидается 3 элемента)
+                throw new Exception("Формат математической операции: \"" +
                     input + "\" не удовлетворяет заданию - два операнда и один оператор");
             char operation = inputArray[1].charAt(0);
             int num1, num2;
@@ -49,4 +50,5 @@ public class Calculator {
             e.printStackTrace();
         }
     }
+
 }

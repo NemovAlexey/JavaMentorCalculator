@@ -1,4 +1,5 @@
 public class Converter {
+
     static int romanToArabic(String roman) throws Exception {
         return switch (roman) {
             case "I" -> 1;
@@ -14,6 +15,7 @@ public class Converter {
             default -> throw new Exception("Некорректное значение");
         };
     }
+
     static String arabicToRoman(int arabic) {
         String roman = switch (arabic / 10) {
             case 1 -> "X";
@@ -42,4 +44,5 @@ public class Converter {
         };
         return roman;
     }
+
 }
